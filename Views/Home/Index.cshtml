@@ -1,0 +1,60 @@
+﻿@model List<Dessert>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (Dessert dessert in Model)
+{
+    <div class="allRecipes">
+        <div class="dessertImage vegan_@dessert.IsVegan lowFat_@dessert.IsLowFat sugarFree_@dessert.IsSugarFree fiveIngredients_@dessert.IsFiveIngredientsOrLess 
+             @*@dessert.HashTag1 @dessert.HashTag2 @dessert.HashTag3 @dessert.HashTag4 @dessert.HashTag5 @dessert.HashTag6 @dessert.HashTag7 @dessert.HashTag8 @dessert.HashTag9 @dessert.HashTag10*@">
+            <a target="_blank" href="@dessert.Source"><img src="@dessert.ImageSource" /></a>
+        </div>
+        <div class="description">
+            <div class="title">
+                <span class="dessert_name">@dessert.Name</span>
+            </div>
+            <div class="likeDiv">
+                <form asp-controller="Home" asp-action="AddALike" asp-route-dessertId="@dessert.Id" method="post">
+
+                    <input type="submit" value="Like" />
+                </form> <span>Total Likes: @dessert.TotalLikes</span>
+                
+                
+            </div>
+            <div class="hashtags">
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag1">
+                    <span>@dessert.HashTag1</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag2">
+                    <span>@dessert.HashTag2</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag3">
+                    <span>@dessert.HashTag3</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag4">
+                    <span>@dessert.HashTag4</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag5">
+                    <span>@dessert.HashTag5</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag6">
+                    <span>@dessert.HashTag6</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag7">
+                    <span>@dessert.HashTag7</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag8">
+                    <span>@dessert.HashTag8</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag9">
+                    <span>@dessert.HashTag9</span>
+                </a>
+                <a asp-controller="Home" asp-action="Hashtag" asp-route-hashtag="@dessert.HashTag10">
+                    <span>@dessert.HashTag10</span>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@model Dessert
+@{
+    ViewData["Title"] = "SubmitNewDessert";
+}
+
+<fieldset>
+    <legend>Link to your favorite dessert</legend>
+
+    <form class="form" asp-controller="Puppies" asp-action="Save" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" name="Name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="Source" placeholder="Source">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="ImageSource" placeholder="Image Source">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="Type" placeholder="Image Source">
+        </div>
+        <input name="submit" value="Submit!" type="submit" />
+    </form>
+</fieldset>
+
